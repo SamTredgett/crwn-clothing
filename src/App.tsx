@@ -1,11 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import Directory from './components/directory/directory.component';
+import { Route, Routes} from 'react-router-dom';
+import Home from './routes/home/home.component';
+import NavigationBar from './routes/navigation/navigation-bar.component';
+const Shop = () => {
+  return (<>
+    <h1>Hello shop page </h1>
+  </>)
+}
 function App() {
   return (
-    <>
-      <Directory />
-    </>
+    <Routes>
+      <Route path='/' element={<NavigationBar />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+      </Route>
+    </Routes>
   );
 }
 
